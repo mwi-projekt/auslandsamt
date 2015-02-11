@@ -1,0 +1,57 @@
+@CHARSET "ISO-8859-1";
+
+html,body {
+	font-family: 'Roboto', sans-serif;
+	color: black;
+/* 	background-color: #C8C8C8; */
+	background-color: white;
+}
+
+h1,h2,h3 {
+/* 	font-family: areal; */
+	color: black;
+	text-align: center;
+}
+
+p {
+	font-family: areal;
+	font-size: 20px;
+}
+
+.warning {
+	background-color: #FF0000;
+}
+
+.line {
+/* 	border-bottom: 1px solid #aaa; */
+}
+
+.container {
+	width: relativ;
+	height: relativ;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: #F0F0F0;
+	margin-top: 50px;
+	margin-bottom: 50px;
+/* 	background-color: #F0F0F0; */
+	background-color: white;
+}
+
+.input-group {
+	margin: 10px
+}
+
+.dat {
+	margin-top: 40px;
+	border-bottom: 1px solid #aaa;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+#boxx {
+	border-radius: 5px;
+}
+/* #checkbox1 { */
+/* 	overflow: auto; */
+/* } */

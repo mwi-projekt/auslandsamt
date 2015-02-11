@@ -1,0 +1,515 @@
+body {
+	
+}
+
+/* Allgemeine Elemente */
+.btn {
+	font-size: medium;
+	border: 1px solid white;
+	font-weight: bold;
+	background: #005353;
+	color: white;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+}
+
+.btn:hover {
+	background: #D60000;
+	color: white;
+}
+
+.inBox {
+	font-weight: bold;
+	font-size: medium;
+	border-radius: 5px;
+	border: 1px solid white;
+	padding: 5px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	margin-bottom: 10px;
+	color: black;
+	width: 80%;
+}
+
+.red {
+	color: #D60000;
+}
+
+
+.tuerkis {
+	background: #AFEEEE;
+	width: 100%;
+	padding: 10px;
+}
+
+.mittig {
+	text-align: center;
+}
+
+/* Header */
+.header {
+	color: #D60000;
+	padding: 5px;
+	width: 100%;
+	
+	z-index: 101;
+	background: white;
+	-webkit-box-shadow: 0 0px 6px rgba(0, 0, 0, .5);
+	box-shadow: 0 0px 6px rgba(0, 0, 0, .5);
+}
+
+#logo {
+	width: 100%;
+}
+
+.ueberschrift {
+	margin-left: 20%;
+}
+
+.textResize {
+	text-align: center;
+}
+
+.inline {
+	display: inline;
+}
+
+.loginFenster {
+	width: 16.67%;
+	background: #AFEEEE;
+	border: 1px solid white;
+	border-radius: 5px;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	top: 0%;
+	margin-top: -190px;
+	color: black;
+	padding: 10px;
+	position: fixed;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	z-index: 102;
+	padding-bottom: 2px;
+}
+
+#loginClose {
+	cursor: pointer;
+}
+
+.logoutFenster {
+	display: none;
+	width: 16.67%;
+	background: #AFEEEE;
+	border: 1px solid white;
+	border-radius: 5px;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	top: 0%;
+	margin-top: -5px;
+	color: black;
+	padding: 10px;
+	position: fixed;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	z-index: 102;
+	padding-bottom: 2px;
+}
+
+.loginShow {
+	color: #005353;
+	font-weight: bold;
+	margin-top: 25px;
+	float: left;
+	font-size: medium;
+	cursor: pointer;
+}
+
+.regShow {
+	margin-top: 25px;
+	color: #005353;
+	float: right;
+	font-size: medium;
+	cursor: pointer;
+}
+
+.logged {
+	font-size: medium;
+}
+
+#logout {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+/* PopUpFeld */
+.erfolgreich {
+	position: absolute;
+	font-weight: bold;
+	top: 10%;
+	left: 45%;
+	background: #AFEEEE;
+	border: 1px solid black;
+	font-size: medium;
+	padding: 5px;
+	border-radius: 5px;
+	z-index: 103;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	display: none;
+}
+.popUpBack {
+	display: none;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	background-color: rgba(59, 63, 67, 0.30);
+	z-index: 102;
+}
+
+.popUpFeld {
+	display: none;
+	background: #AFEEEE;
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid #AFEEEE;
+	width: 350px;
+	top: 50%;
+	left: 50%;
+	margin-top: -250px;
+	margin-left: -175px;
+	position: fixed;
+	z-index: 103;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+}
+
+.student {
+	display: none;
+}
+
+.auslandsmitarbeiter {
+	display: none;
+}
+
+.falsch {
+	color: red;
+	margin-top: 10px;
+}
+
+.arr {
+	margin-top: 115px;
+}
+
+.arr:hover {
+	border: 1px solid black;
+}
+
+#smallImg {
+	width: 30px;
+	height: 30px;
+	padding-top: 1px;
+	border: 1px solid transparent;
+	border-radius: 50px;
+	position: absolute;
+	top: 5px !important;
+	right: 5px !important;
+}
+
+#smallImg:hover {
+	background: #D60000;
+}
+
+.inhalt {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* Navigationsleiste */
+.navBar {
+	margin-bottom: 20px;
+}
+
+.navBar label {
+	padding: 10px;
+}
+
+.navBar a {
+	text-decoration: none;
+	color: white;
+}
+
+
+
+/* imgSlider */
+.imgSlider {
+	background-image: url(images/pan1.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 250px;
+}
+
+.pfeil {
+	max-height: 250px;
+}
+
+/* Inhalt Boxen */
+
+.inhaltBox {
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.linkUp {
+	float: right;
+	margin-bottom: 10px;
+	clear: both;
+	color: rgb(48, 192, 192) !important;
+}
+
+.linkUp:hover {
+	text-decoration: underline !important;
+}
+
+/* portalInfo */
+.portalInfo {
+}
+
+.portalInfo p {
+	font-size: medium;
+}
+
+#imgWorld {
+	width: 55%;
+	margin-left: 22.5%;
+}
+
+.funktionen {
+	margin-top: 12%;
+}
+
+.funktionen li {
+	font-size: medium;
+}
+
+/* Auslandsangebote */
+.studiengang {
+	padding-left: 15px;
+	cursor: pointer;
+}
+.studiengang:hover {
+	text-decoration: underline;
+}
+
+.content {
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.auslandsAngebote {
+	clear: both;
+}
+
+.auslandsAngebote a {
+	text-decoration: none;
+	color: black;
+}
+
+.angebot {
+	padding: 5px;
+	border-bottom: 1px solid black;
+	clear: both;
+	
+}
+.uni {
+	display: none;
+	clear: both;
+	background: #eee;
+	padding-left: 5px;
+	padding-top: 5px;
+	min-height: 220px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+}
+
+.maps {
+	border: 1px groove black;
+}
+
+.navBar {
+	
+}
+
+.navBar p {
+	display: inline;
+	box-shadow: inset 0 0 10px grey;
+	font-size: large;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.navBar p:hover {
+	background: black;
+	color: white;
+}
+
+.navBar .current {
+	color: #D60000;
+}
+
+.navBar .current:hover {
+	background: #eee;
+	color: #D60000;
+}
+
+.navBar .weg {
+	display: none;
+}
+
+.angCont {
+	display: none;
+}
+
+.linkCont {
+	color: #D60000;
+	cursor: pointer;
+}
+
+.linkCont:hover {
+	text-decoration: underline;
+}
+
+/* Erfahrungsberichte */
+.erfahrungsBerichte p {
+	font-size: medium;
+}
+
+.middle {
+	vertical-align: middle;
+}
+
+i {
+	font-size: medium;
+}
+
+.arrow {
+	width: 10%;	
+	background: #eee;
+	cursor: pointer;
+}
+
+.arrow:hover {
+	background: #dee;
+}
+
+#arrRight {
+	float: left;
+}
+
+#arrLeft {
+	float: right;
+}
+
+.kurzbericht {
+	display: none;
+	padding: 10px;
+}
+
+.zeig {
+	display: block;
+}
+
+/* InfoMaterial */
+.infoMaterial p {
+	font-size: medium;
+}
+
+#imgBro {
+	width: 50%;
+}
+
+.informationen {
+	margin-top: 10%;
+}
+
+.informationen li {
+	font-size: medium;
+}
+
+/* Footer */
+.footer {
+	width: 100%;
+	padding: 5px;
+	background: white;
+	bottom: 0;
+	font-size: x-small !important;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .8);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .8);
+}
+
+.footer a {
+	font-size: small;
+	color: rgb(48, 192, 192);
+	
+}
+
+/* CMS zur Auslandsverwaltung */
+.cms {
+	display: none;
+}
+
+.cmsBtn {
+	background: #D60000;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.cmsBtn:hover {
+	background: rgb(48, 192, 192);
+}
+
+.btnBild {
+	position: absolute;
+}
+
+.cmsPortal {
+	display: none;
+}
+
+.cmsAngebote {
+	display: none;
+}
+
+.cmsBerichte {
+	display: none;
+}
+
+.cmsInfo {
+	display: none;
+}
+
+.small {
+	width: 30px;
+	height: 30px;
+	background: #005353;
+	margin-top: 3px;
+	border: 1px solid #005353;
+	border-radius: 5px;
+	margin-left: 5px;
+}
+
+.infoLink {
+	color: rgb(48, 192, 192);
+}
+
+.upload {
+	visibility: hidden;
+	width: 100%;
+	height: 1px;
+}
+
+/* Wenn der User eingeloggt ist */

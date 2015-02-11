@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>DHBW Auslandsportal</title>
+    
+		<link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+		<link rel="stylesheet" href="external/jquery-ui/jquery-ui.css">
+		<link rel="stylesheet" href="CSS/main.css">
+		<link rel="stylesheet" href="CSS/bewerbungsportal.css">
+		<link rel="stylesheet" href="CSS/InfoBox.css">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script src="JS/main.js"></script>
+		<script src="JS/bewerbungsportal.js"></script>
+	</head>
+
+	<body>  
+		<!--  PopupFeld für Registrierung -->
+		<div class="popUpBack"></div>
+		<div class="popUpFeld">
+			
+		</div>
+		<!-- Navigationsleiste -->
+		<div class="header">
+			<div class="row">
+			<div class="col-md-2"></div>
+				<div class="col-md-1">
+					<a class="pull-left" href="index.html"><img id="logo" src="images/DHBW.jpg" /></a>
+				</div>
+					<div class="col-md-4">
+					<br><br>
+						<h2 class="ueberschrift">Auslandsportal DHBW Karlsruhe</h2>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-2">
+					<div class="loginFenster pull-right">
+						<a href="#" id="loginClose"><img src="images/Button Delete.png" id="smallImg"></a>
+						<br><br>
+						<input type="text" placeholder="Name" id="inName" class=" inBox"/>
+  						<input type="password" placeholder="Passwort" id="inPasswort" class=" inBox"/><br>
+  						<label class=" btn" id="btnLogin">Login</label><br>
+  						<div>
+  						<p class="loginShow">Login <b class="caret"></b></p>
+  						<p class="regShow linkReg">Registrieren</p>
+  						</div>
+					</div>
+					<div class="logoutFenster pull-right">
+						<p class="logged">Eingeloggt als <b class="nutzerName"></b> <u class="pull-right" id="logout">Logout</u></p>
+					</div>
+					<br><br><br><br>
+					<a class="pull-right" href="http://www.dhbw-karlsruhe.de" style="font-size:medium; margin-bottom: 10px">www.dhbw-karlsruhe.de</a>
+				</div>
+			</div>
+			
+    	</div>
+
+		<!-- Mittlerer Teil -->
+		<div class="row aufgaben">
+			<div class="col-md-2 navVer">
+				<h2 class="Home">News</h2>
+				<h2 class="Home">Aufgaben</h2>
+				<h2 class="Home">Status</h2>
+				<h2 class="Angebote">Neue Angebote</h2>
+				<h2 class="Angebote">Alle Angebote</h2>
+				<h2 class="Bewerben aktiv" id="bewTop1">Bewerbungsprozess</h2>
+				<h3 class="bewSub" id="bewSub1">Neue Bewerbung</h3>
+				<h2 class="Bewerben" id="bewTop2">Erfahrungsbericht</h2>
+				<h3 class="bewSub" id="bewSub2">Neuer Erfahrungsbericht</h3>
+				<h2 class="Berichte">Gesamtbewertung</h2>
+				<h2 class="Berichte">Einzelbewertung</h2>
+			</div>
+			<div class="nav col-md-8">
+				<div class="navEl current nonCms" id="nav1">Home</div>
+				<div class="navEl nonCms" id="nav2">Angebote</div>
+				<div class="navEl nonCms" id="nav3">Bewerben</div>
+				<div class="navEl nonCms" id="nav4">Berichte</div>
+				<div class="navEl cms" id="nav5">Home</div>
+				<div class="navEl cms" id="nav6">Bewerber</div>
+				<div class="navEl cms" id="nav7">Bewerbungsprozesse bearbeiten</div>
+				<div class="navEl cms" id="nav8">Prozess Server</div>
+			</div>
+			
+			
+			<div class="inhalt" id="in1">
+				<div class="col-md-4 inhaltBox">
+					<h2>Aktuelle Aufgaben</h2>
+					<ul>
+						<li>Notenschnitt eintragen</li>
+						<li>Englischnote eintragen</li>
+						<li>Frau Dreischer anrufen</li>
+					</ul>
+				</div>
+				<div class="col-md-4 inhaltBox">
+					<h2> Aktueller Status</h2>
+					<div class="fortschritt inhaltBox">
+						<p>Aktueller Fortschritt</p>
+						<div id="progressbar"></div>
+						<div id="prozent"></div>
+					</div>
+				</div>
+			</div>
+			<div class="inhalt" id="in2">
+				<div class="col-md-8 inhaltBox">
+					<select class="inBox" id="selStudiengang">
+						<option>Länder</option>
+						<option>Schottland</option>
+						<option>USA (Kalifornien)</option>
+						<option>Polen</option>
+					</select>
+					
+				</div>
+			</div>
+			<div class="inhalt" id="in3">
+				<div class="col-md-8 inhaltBox">
+					<div class="" id="bewPro">
+						<table class="table table-striped">
+							<thead>
+								<tr id="titleRow"> 
+									<td class="studiengang">Studiengang</td>
+									<td class="universität">Universität</td>
+									<td class="ort">Ort</td>
+									<td class="bewStart">Begonnen am</td>
+									<td class="status">Status</td>
+									<td class="aktionen">Aktionen</td>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+					</div>
+					<iframe class="iFenster iF1" src="bewerbungsformular.html" style="width: 100%; height: 500px;"></iframe>
+					<label class="btn inline iFenster iF1 pull-right" id="btnBewWeiter">Speichern und fortfahren</label>
+					<span id="textbox"></span>
+					<label class="btn inline iFenster iF1 pull-right" id="btnBewSave">Daten Speichern</label>
+					<ul class="nav nav-tabs iFenster iF2">
+						<li class="active" id="li1">Vorbereitung</li>
+						<li id="li2">Studium</li>
+						<li id="li3">Leben</li>
+						<li id="li4">Fazit</li>
+					</ul> 
+					<iframe class="iFenster iF2" src="erfahrungsbericht1.html" style="width: 100%; height: 500px;"></iframe>
+					
+				</div>
+			</div>
+			<div class="inhalt" id="in4">
+				<div class="col-md-8 inhaltBox">
+					<h2>Erfahrungsberichte</h2>
+					<select class="inBox" id="selBerichte">
+						<option>Gesamtbewertung</option>
+						<option>Einzelbewertungen</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="inhalt" id="in7">
+				<div class="col-md-8 inhaltBox">
+					
+				</div>
+			</div>
+			<div class="inhalt" id="in8">
+				<div class="col-md-8 inhaltBox">
+				</div>
+			</div>
+		</div>
+  		
+		<!-- FuÃŸzeile -->
+		<div class="footer">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="pull-right">
+						<p>
+							<a href="index.html">Startseite</a>
+							|
+							<a href="impressum.html">Impressum</a>
+							|
+							<a href="faq.html">FAQs</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
