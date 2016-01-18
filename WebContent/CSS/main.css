@@ -2,6 +2,10 @@ body {
 	
 }
 
+input {
+	width: 300px;
+}
+
 /* Allgemeine Elemente */
 .btn {
 	font-size: medium;
@@ -28,7 +32,7 @@ body {
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
 	margin-bottom: 10px;
 	color: black;
-	width: 80%;
+	
 }
 
 .red {
@@ -93,13 +97,22 @@ body {
 	padding-bottom: 2px;
 }
 
+.loginFenster .inBox {
+	width: 80%;
+}
+
 #loginClose {
 	cursor: pointer;
 }
 
+#falschLogin {
+	color: red; 
+	margin-bottom: 0px; 
+	display: none;
+}
+
 .logoutFenster {
 	display: none;
-	width: 16.67%;
 	background: #AFEEEE;
 	border: 1px solid white;
 	border-radius: 5px;
@@ -110,7 +123,7 @@ body {
 	margin-top: -5px;
 	color: black;
 	padding: 10px;
-	position: fixed;
+	position: absolute;
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
 	z-index: 102;
@@ -141,14 +154,18 @@ body {
 #logout {
 	cursor: pointer;
 	font-weight: bold;
+	margin-left: 5px;
 }
 
 /* PopUpFeld */
 .erfolgreich {
-	position: absolute;
+	text-align: center;
+	position: fixed;
+	width: 40%;
+	left: 50%;
+	margin-left: -20%;
 	font-weight: bold;
 	top: 10%;
-	left: 45%;
 	background: #AFEEEE;
 	border: 1px solid black;
 	font-size: medium;
@@ -175,15 +192,19 @@ body {
 	padding: 20px;
 	border-radius: 10px;
 	border: 1px solid #AFEEEE;
-	width: 350px;
+	width: 650px;
 	top: 50%;
 	left: 50%;
 	margin-top: -250px;
-	margin-left: -175px;
+	margin-left: -325px;
 	position: fixed;
 	z-index: 103;
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+}
+
+#askAdmin {
+	display: none;
 }
 
 .student {
@@ -216,6 +237,7 @@ body {
 	position: absolute;
 	top: 5px !important;
 	right: 5px !important;
+	cursor: pointer;
 }
 
 #smallImg:hover {
@@ -245,7 +267,6 @@ body {
 
 /* imgSlider */
 .imgSlider {
-	background-image: url(images/pan1.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 250px;
@@ -253,6 +274,44 @@ body {
 
 .pfeil {
 	max-height: 250px;
+}
+
+/* Admin Bereich */
+#adminBereich {
+	display: none;
+}
+
+#adminBereich .col-md-12 {
+	text-align: center;
+}
+
+#adminBereich .tile {
+	padding: 5px;
+	display: inline-block;
+	max-width: 30%;
+	max-height: 15%;
+	background: #D60000;
+	text-align: center;
+	margin-left: 15px;
+	margin-top: 10px;
+	font-weight: bold;
+	color: white;
+	box-shadow: 0 6px 12px rgba(0, 0 ,0, 0.5);
+	cursor: pointer;
+}
+
+#adminBereich .tile:hover {
+	background: #FB2020;
+}
+
+#adminBereich .tileImg {
+	max-width: 80%;
+}
+
+#adminBereich .smallImg {
+	position: absolute;
+	width: 30px;
+	height: 30px;
 }
 
 /* Inhalt Boxen */
@@ -289,7 +348,7 @@ body {
 }
 
 .funktionen {
-	margin-top: 12%;
+	margin-top: 8%;
 }
 
 .funktionen li {
@@ -396,22 +455,18 @@ i {
 	font-size: medium;
 }
 
+#berichtPfeile {
+	text-align: center;
+}
+
 .arrow {
-	width: 10%;	
+	width: 5%;	
 	background: #eee;
 	cursor: pointer;
 }
 
 .arrow:hover {
 	background: #dee;
-}
-
-#arrRight {
-	float: left;
-}
-
-#arrLeft {
-	float: right;
 }
 
 .kurzbericht {
@@ -440,12 +495,64 @@ i {
 	font-size: medium;
 }
 
+/* Nutzerverwaltung */
+
+#nutzerVerwaltung {
+	display: none;
+}
+
+#nutzerVerwaltung .row {
+	padding: 20px;
+}
+
+.backAdmin {
+	cursor: pointer;
+	color: rgb(48, 192, 192);
+}
+
+#backAdmin:hover {
+	text-decoration: underline;
+}
+
+#nutzerVerwaltung .odd {
+	background: #ddd;
+}
+
+#nutzerVerwaltung td {
+	margin-right: 5px;
+	padding: 5px;
+}
+
+#nutzerVerwaltung .titleRow {
+	border-bottom: 2px solid black;
+	background: #eee;
+	font-weight: bold;
+}
+
+.nutzerBearbeiten {
+	display: none;
+	position: absolute;
+	width: 30%;
+	left: 50%;
+	margin-left: -15%;
+	top: 10%;
+	background: #AFEEEE;
+	border: 1px solid black;
+	font-size: medium;
+	padding: 5px;
+	border-radius: 5px;
+	z-index: 103;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .5);
+}
+
 /* Footer */
 .footer {
 	width: 100%;
 	padding: 5px;
 	background: white;
 	bottom: 0;
+	margin-top: 15px;
 	font-size: x-small !important;
 	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .8);
 	box-shadow: 0 6px 12px rgba(0, 0, 0, .8);
@@ -474,6 +581,10 @@ i {
 
 .btnBild {
 	position: absolute;
+	right: 1%;
+	top: 1%;
+	max-width: 130px;
+	display: none;
 }
 
 .cmsPortal {
@@ -500,6 +611,7 @@ i {
 	border: 1px solid #005353;
 	border-radius: 5px;
 	margin-left: 5px;
+	cursor: pointer;
 }
 
 .infoLink {
@@ -512,4 +624,63 @@ i {
 	height: 1px;
 }
 
-/* Wenn der User eingeloggt ist */
+.Admin {
+	display: none;
+}
+
+/* Hier wird gebastelt */
+#laden {
+	display: none;
+}
+
+.navBarAng {
+	background: #eee;
+	color: black;
+	margin-bottom: 0px;
+}
+
+.navelAng {
+	display: inline-block;
+	padding: 5px;
+	font-size: medium;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.contentAng {
+	display: none;
+	margin-top: 0px;
+	padding: 5px;
+	width: 100%;
+	color: black;
+	min-height: 210px;
+}
+
+#angebotEdit {
+	display: none;
+}
+
+.active {
+	background: #AFEEEE !important;
+	display: inline-block;
+	color: #005353;
+}
+
+.zweiD {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.cmsEditAngebote {
+	display: none;
+}
+
+.longBox {
+	width: 500px;
+}
+
+.eingeloggt {
+	display: none;
+}

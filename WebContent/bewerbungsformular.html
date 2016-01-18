@@ -45,18 +45,12 @@
 								</span></a>
 							</p>
 						<!-- E-------------  Infobox Ende --------------------------------------------- -->
-							<input id="boxx" type="text" id="vorname" class="form-control vorname" 
-								placeholder="Vorname" required>
-							<input id="boxx" type="text" id="nachname" class="form-control nachname" 
-								placeholder="Nachname" required>
-							<input id="boxx" type="email" id="email" class="form-control email" 
-								placeholder="E-Mail-Adresse" required>
-							<input id="boxx" type="text" id="telefon" class="form-control telefon" 
-								placeholder="Telefon" required>
-							<input id="boxx" type="text" id="mobil" class="form-control mobil"
-								placeholder="Mobil" required>
-							<input id="boxx" type="text" id="studiengang" class="form-control studiengang"
-								placeholder="Studiengang" required>
+							<input type="text" id="bewVorname" class="form-control" placeholder="Vorname" required>
+							<input type="text" id="bewNachname" class="form-control" placeholder="Nachname" required>
+							<input type="email" id="bewEmail" class="form-control" 	placeholder="E-Mail-Adresse" required>
+							<input type="text" id="bewTelefon" class="form-control"	placeholder="Telefon">
+							<input type="text" id="bewMobil" class="form-control" placeholder="Mobil">
+							<input type="text" id="bewStudiengang" class="form-control" placeholder="Studiengang" required>
 							<!-- A-------------  Infobox Anfang --------------------------------------------- -->
 							<a class="infobox" href="#INFO"> 
 							<img style="right: -30px; bottom: 40px;" id="in" src="images/Information 1.png">
@@ -64,8 +58,8 @@
 								Bitte tragen Sie hier Ihren Studiengang ein, wie z.B.: <strong>Wirtschaftsinformatik</strong>
 							</span></a>
 							<!-- E-------------  Infobox Ende --------------------------------------------- -->
-							<input id="boxx" type="text" id="semester" class="form-control semester"
-								placeholder="Semester / Kurs + Jahrgang" required>
+							<input type="text" id="bewKurs" class="form-control semester"
+								placeholder="Kurs" required>
 							<!-- A-------------  Infobox Anfang --------------------------------------------- -->
 							<a class="infobox" href="#INFO"> 
 							<img style="right: -30px; bottom: 5px;" id="in" src="images/Information 1.png"> 
@@ -76,16 +70,16 @@
 						</div>
 
 						<div class="input-group">
-							<input id="boxx" type="text" class="form-control pr" class="upload" 
-								placeholder="Englisch Note Abitur " required>
+							<input id="boxx" type="text" class="form-control pr" class="upload" placeholder="Englisch Punkte Abitur " required>
+							<a class="infobox2" href="#INFO"> 
+							<img style="margin-top: 10px;" id="in" src="images/Information 1.png"> 
+							<span id="textbox" class="infobox2"> <b>Englisch Note Abitur:</b><br />
+								Tragen Sie hier bitte Ihre Englisch-Note aus Ihrem Abschluss
+								Zeugnis als Punkte ein und klicken Sie auf prüfen.
+							</span></a>
 							<!-- A-------------  Infobox Anfang --------------------------------------------- -->
-							<p><button style="margin-top: 10px;" class="btn btn-primary bu" type="button">Prüfen</button>
-								<a class="infobox2" href="#INFO"> 
-								<img style="margin-top: 10px;" id="in" src="images/Information 1.png"> 
-								<span id="textbox" class="infobox2"> <b>Englisch Note Abitur:</b><br />
-									Tragen Sie hier bitte Ihre Englisch-Note aus Ihrem Abschluss
-									Zeugnis als Ziffer ein und klicken Sie auf prüfen.
-								</span></a>
+							<p><button style="margin-top: 10px;" class="btn" id="btnNotePruef" type="button">Prüfen</button>
+								
 							</p>
 							<!-- E-------------  Infobox Ende --------------------------------------------- -->
 						</div>

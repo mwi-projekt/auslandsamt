@@ -26,31 +26,58 @@
 			</select>
 			<label class="btn auswahl">Bestätigen</label>
 			<div class="student auslandsmitarbeiter">
-				<p>*Pflichtfelder.</p>
-				<input type="text" placeholder="Vorname" class="inBox" id="inVorname">
-				<input type="text" placeholder="Nachname" class="inBox" id="inNachname">
-				<input type="text" placeholder="E-Mail Adresse" class="inBox" id="inMail">
+				<p class="red" style="margin-top: 10px">*Pflichtfelder.</p>
+				<input type="text" placeholder="Vorname*" class="inBox" id="inVorname">
+				<input type="text" placeholder="Nachname*" class="inBox" id="inNachname">
+				<input type="text" placeholder="E-Mail Adresse*" class="inBox" id="inMail">
 			</div>
 			<div class="student">
-				
-				<input type="text" placeholder="Matrikelnummer" class="inBox" id="inMatrikel">
+				<input type="text" placeholder="Matrikelnummer*" class="inBox" id="inMatrikel">
 				<select class="inBox" id="inStudiengang">
-					<option>Studiengang</option>
+					<option>Studiengang*</option>
 					<option>Wirtschaftsinformatik</option>
 					<option>Wirtschaftsingenieurwesen</option>
 				</select>
-				<input type="text" placeholder="Kurs" class="inBox" id="inKurs">
-				<input type="password" placeholder="Passwort 1. Mal" class="inBox" id="inPwSt1">
-				<input type="password" placeholder="Passwort 2. Mal" class="inBox" id="inPwSt2">
+				<input type="text" placeholder="Kurs*" class="inBox" id="inKurs">
+				<select class="inBox" id="inStandort">
+					<option>DHBW Standort wählen*</option>
+					<option>DHBW Karlsruhe</option>
+					<option>DHBW Stuttgart</option>
+					<option>DHBW Mannheim</option>
+					<option>DHBW Mosbach</option>
+					<option>DHBW Lörrach</option>
+					<option>DHBW Ravensburg</option>
+					<option>DHBW Heidenheim</option>
+					<option>DHBW Villingen-Schwenningen</option>
+				</select>
+				<input type="password" placeholder="Passwort 1. Mal*" class="inBox" id="inPwSt1">
+				<input type="password" placeholder="Passwort 2. Mal*" class="inBox" id="inPwSt2">
 				<label class="btn btnReg">Registrieren</label>				
+			</div>
+			<div id="askAdmin">
+				<p style="color: red">Bitte wenden sie sich an Herrn Prof. Dr. Thomas Freytag, wenn sie Zugang zu diesem Portal benötigen.</p>
 			</div>
 			<div class="auslandsmitarbeiter">
 				<input type="text" placeholder="Telefonnummer" class="inBox" id="inTel">
-				<input type="password" placeholder="Passwort 1. Mal" class="inBox" id="inPwAu1">
-				<input type="password" placeholder="Passwort 2. Mal" class="inBox" id="inPwAu2">
+				<input type="text" placeholder="Mobilfunknummer" class="inBox" id="inMobil">
+				<input type="password" placeholder="Passwort 1. Mal*" class="inBox" id="inPwAu1">
+				<input type="password" placeholder="Passwort 2. Mal*" class="inBox" id="inPwAu2">
 				<label class="btn btnReg">Registrieren</label>
 			</div>
 			<p class="falsch"></p>
+		</div>
+		<div class="nutzerBearbeiten">
+			<b id="closeBearb"><img src="images/Button Delete.png" id="smallImg"></b>
+			<h2>Benutzerdaten bearbeiten</h2>
+			<input class="inBox" type="text" id="inEditVorname" placeholder="Vorname">
+			<input class="inBox" type="text" id="inEditNachname" placeholder="Nachname">
+			<input class="inBox" type="text" id="inEditEmail" placeholder="Email">
+			<input class="inBox" type="text" id="inEditTel" placeholder="Telefonnummer">
+			<input class="inBox" type="text" id="inEditMobil" placeholder="Mobilfunknummer">
+			<input class="inBox" type="text" id="inEditStudgang" placeholder="Studiengang">
+			<input class="inBox" type="text" id="inEditKurs" placeholder="Kurs">
+			<input class="inBox" type="text" id="inEditMatnr" placeholder="Matrikelnummer"><br>
+			<div class="btn" id="btnUserEditSave">Änderungen speichern</div>
 		</div>
 		<!-- Navigationsleiste-------------------------------------------------------------------- -->
 		<div class="header">
@@ -68,8 +95,9 @@
 					<div class="loginFenster pull-right">
 						<b id="loginClose"><img src="images/Button Delete.png" id="smallImg"></b>
 						<br><br>
-						<input type="text" placeholder="Name" id="inName" class=" inBox"/>
-  						<input type="password" placeholder="Passwort" id="inPasswort" class=" inBox"/><br>
+						<input type="text" placeholder="Nachname.Vorname" id="inName" class=" inBox"/>
+  						<input type="password" placeholder="Passwort" id="inPasswort" class=" inBox"/>
+  						<p id="falschLogin" style="color: red; margin-bottom: 0px; display: none">Falsche Eingabe. Bitte versuchen sie es erneut.</p><br>
   						<label class=" btn" id="btnLogin">Login</label><br>
   						<div>
   						<p class="loginShow">Login <b class="caret"></b></p>
@@ -86,135 +114,189 @@
     	</div>
 
 		<!-- Mittlerer Teil --------------------------------------------------------------------------->
-  		<div class="inhalt">
+	<div class="container" id="adminBereich">
+  			<div class="col-md-12">
+  				<div class="tile" id="verwaltungIndex">
+  					<img src="images/Bookmark.png" class="tileImg">
+  					<img src="images/Edit.png" class="smallImg">
+  					<p>Startseite bearbeiten</p>
+  				</div>
+  				<div class="tile" id="verwaltungUser">
+  					<img src="images/Users.png" class="tileImg">
+  					<img src="images/Edit.png" class="smallImg">
+  					<p>Benutzer verwalten</p>
+  				</div>
+  				<div class="tile" id="verwaltungPortal">
+  					<img src="images/Member Card.png" class="tileImg">
+  					<img src="images/Edit.png" class="smallImg">
+  					<p>Bewerbungsprozess bearbeiten</p>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="inhalt" id="normalBereich">
   			<div class="row navBar" style="text-align: center">
   				<label class="btn inline"><a href="#portalInfo">Was ist das?</a></label>
   				<label class="btn inline"><a href="#auslandsAngebote">Auslandsangebote</a></label>
   				<label class="btn inline"><a href="#erfahrungsBerichte">Erfahrungsberichte</a></label>
   				<label class="btn inline"><a href="#infoMaterial">Infomaterial</a></label>
+  				<label class="btn inline eingeloggt"><a href="bewerbungsportal.html">Zum Bewerbungsportal</a></label>
+  				<label class="btn cms cmsBtn inline" style="float: none"><a href="bewerbungsportal.html">Bewerbungsprozesse bearbeiten</a></label>
   			</div>
   			<div class="row tuerkis">
   				<div class="col-md-12">
   					<div class="imgSlider">
-  					<img class="pull-left pfeil links" src="images/Arrow Right 2.png" />
-  					<img class="pull-right pfeil rechts" src="images/Arrow Left 2.png" />
   					</div>
   				</div>
   			</div>
-  			<div class="container ">
+  			<div class="container">
 	  			<div class="row content">
 	  				<div class="portalInfo inhaltBox row" id="portalInfo">
-	  					<div class="col-md-12"><label class="btn cms cmsBtn">Bearbeiten</label></div>
+	  					<div class="col-md-12">
+	  						<label class="btn cms cmsBtn">Bearbeiten</label>
+	  						<label class="btn" id="laden">Laden</label>
+	  						<div class="pull-right"><p class="backAdmin Admin">Zurück zum Hauptmenü</p></div>
+	  						</div>
 	  					<div class="col-md-6">
 	  						<img src="images/weltkarte.jpg" id="imgWorld" />
 	  						<label class="btn cmsBtn cmsPortal btnBild" id="btnportalBild">Bild Ändern<input class="upload" type="file" id="portalBild" /></label>
 	  						<br><br>
 	  					</div>
 	  					<div class="col-md-6">
-	  					<h3 class="nonCms titel">DHBW Webportal für interessierte Studierende</h3>
+	  					<h3 class="nonCms titel"></h3>
 	  					<p class="cmsPortal"><b style="color: #D60000">Titel ändern</b></p>
 	  					<input class="inBox cmsPortal" id="inPortalTitel" value="" placeholder="" />
   						<ul class="funktionen nonCms">
-  							<li id="li1">auf den Studiengang abgestimmte Angebote</li>
-  							<li id="li2">integrierter Bewerbungsprozess</li>
-  							<li id="li3">benötigte Dokumente anfügen</li>
-  							<li id="li4">Status der Bewerbung abrufen</li>
-  							<li id="li5">und vieles mehr...</li>
+
   						</ul>
   						<p class="cmsPortal"><b style="color: #D60000">Infoelemente bearbeiten</b></p>
   						<div class="inputsPortal cmsPortal">
-	  						<input class="inBox" id="inli1" value="" /><img class="small" id="delPoLi1" src="images/Button Delete.png" />
-	  						<input class="inBox" id="inli2" value="" /><img class="small" id="delPoLi2" src="images/Button Delete.png" />
-	  						<input class="inBox" id="inli3" value="" /><img class="small" id="delPoLi3" src="images/Button Delete.png" />
-	  						<input class="inBox" id="inli4" value="" /><img class="small" id="delPoLi4" src="images/Button Delete.png" />
-	  						<input class="inBox" id="inli5" value="" /><img class="small" id="delPoLi5" src="images/Button Delete.png" />
+	  						
   						</div>
 	  					<p class="cmsPortal btn cmsBtn" id="cmsBtnInfoNeu">Neues Infoelement hinzufügen +</p>
   						<p class="red nonCms">Jetzt einfach registrieren und Vorteile nutzen</p>
   						<p class="btn linkReg nonCms">Registrieren</p>
-  						<p class="cmsPortal cmsBtn btn" id="cmsBtnSave" style="clear: both; float: right">Änderungen speichern</p>
+  						<p class="cmsPortal cmsBtn btn" id="cmsPortalSave" style="clear: both; float: right">Änderungen speichern</p>
 	  					</div>
 	  					<a href="#" class="linkUp">Zum Seitenanfang</a>
 	  				</div>
 	  				<div class="auslandsAngebote inhaltBox row" id="auslandsAngebote">
 	  					<div class="col-md-12"><label class="btn cms cmsBtn">Bearbeiten</label></div>
 	  					<h1>Auslandsangebote</h1>
-	  					<div class="col-md-12 cmsAngebote">
-	  						<label class="btn">Studiengang hinzufügen +</label>
+	  					<div class="col-md-12 cmsAngebote" >
+	  						<label class="btn btnAngebote inline cmsBtn" id="btnAddStudgang" style="margin-right: 10px">Neuen Studiengang hinzufügen +</label>
+	  						<label class="btn btnAngebote inline cmsBtn" id="btnAddAngebot" style="margin-right: 10px">Neue Auslandsuni anlegen</label>
+	  						<label class="btn btnAngebote inline cmsBtn" id="btnEditAngebot">Vorhandene Angebote bearbeiten</label>
 	  					</div>
-	  					<div class="col-md-12 angebot" id="ang1">
+	  					<div class="col-md-12 cmsEditAngebote" id="cmsAddStudgang">
+	  						<input type="text" placeholder="Neuer Studiengang" class="inBox inline" id="inNewStudiengang" />
+	  						<label class="cmsBtn btn inline" id="btnSaveNewStudiengang" style="float: none">Speichern</label>
+	  						<p style="color: red; font-size: small; font-style: italic">Achten sie auf die korrekte Schreibweise.</p>
+	  					</div>
+	  					<div class="col-md-12 cmsEditAngebote" id="cmsAddAngebot">
+	  						<p style="color: red; font-style: italic; font-size: small">Pflichtfelder sind mit * gekennzeichnet.</p>
+	  						<select class="inBox zweiD" id="inStudiengangNeuAngebot">
+	  							
+	  						</select>
+	  						<p style="color: red; font-size: small; font-style: italic">Ist der Studiengang nicht aufgeführt, legen sie ihn bitte über den oben zu sehenden Button an.</p>
+	  						<div class="nonCms angebote" id="angebotNeu" style="margin-right: 5px;">
+	  							<div class="col-md-12">
+									<input class="inBox" id="inNeuAngebot" type="text" placeholder="Name der Universität*" />
+									<div class="navBarAng">
+										<div class="navelAng active" id="nNeu11">Infos</div>
+										<div class="navelAng" id="nNeu12">FAQs</div>
+										<div class="navelAng" id="nNeu13">Erfahrungsbericht</div>
+										<div class="navelAng" id="nNeu14">Bilder</div>
+									</div>
+									<div class="contentAng active" id="cNeu11" >
+										<div class="pull-left" style="width: 60%">
+											<textarea class="inBox" id="inNeuAngebotInfo" placeholder="Geben sie hier nützliche Informationen zur Universität ein.*" cols="60" rows="6"></textarea>
+										</div>
+										<div class="pull-right">
+											<input type="text" class="inBox" id="inMaps1" placeholder="Kürzel der Uni, z.B. CSUSM, Abertay*" /><br>
+											<input type="text" class="inBox" id="inMaps2" placeholder="Stadt der Universität*" /><br>
+											<input type="text" class="inBox" id="inMaps3" placeholder="Land der Universität*" /><br>
+										</div>
+									</div>
+									<div class="contentAng" id="cNeu12">
+										<input type="text" class="inBox inline longBox" id="inNeuFaqFr1" placeholder="Frage 1" />
+										<input type="text" class="inBox inline longBox" id="inNeuFaqAn1" placeholder="Antwort 1" /><br>
+										<input type="text" class="inBox inline longBox" id="inNeuFaqFr2" placeholder="Frage 2" />
+										<input type="text" class="inBox inline longBox" id="inNeuFaqAn2" placeholder="Antwort 2" /><br>
+										<input type="text" class="inBox inline longBox" id="inNeuFaqFr3" placeholder="Frage 3" />
+										<input type="text" class="inBox inline longBox" id="inNeuFaqAn3" placeholder="Antwort 3" /><br>
+										<input type="text" class="inBox inline longBox" id="inNeuFaqFr4" placeholder="Frage 4" />
+										<input type="text" class="inBox inline longBox" id="inNeuFaqAn4" placeholder="Antwort 4" />
+									</div>
+									<div class="contentAng" id="cNeu13">
+										<textarea class="inBox" rows="4" cols="80" id="inNeuAngebotErfahrungsbericht" placeholder="Tragen sie hier einen kurzen Erfahrungsbericht ein."></textarea>
+										<input type="text" class="inBox longBox" id="inNeuAngebotErfAutor" placeholder="Autor, Kurs, Jahr des Auslandssemesters" style="float: right"/>
+									</div>
+									<div class="contentAng" id="cNeu14">
+										<b>Der Upload von Bildern funktioniert noch nicht!!!</b>
+										<input type="file" class="inBox" id="inNeuAngebotBild1" style="color: white"/>
+										<input type="file" class="inBox" id="inNeuAngebotBild2" style="color: white"/>
+										<input type="file" class="inBox" id="inNeuAngebotBild3" style="color: white"/>
+										<input type="file" class="inBox" id="inNeuAngebotBild4" style="color: white"/>
+									</div>
+								</div>
+								<p class="cmsAngebote cmsBtn btn" id="cmsBtnSave" style="clear: both; float: right">Änderungen speichern</p>
+							</div>
+							
+	  					</div>
+	  					<div class="col-md-12 cmsEditAngebote" id="cmsEditAngebot">
+	  						<p class="inline">Welches Angebot möchten sie bearbeiten?</p>
+	  						<select class="inBox inline zweiD" id="selEditAngebot">
+	  						</select>
+	  						<div class="nonCms angebote" id="angebotEdit" style="margin-right: 5px;">
+	  							<div class="col-md-12">
+									<h3 id="EditAngebot"></h3>
+									<div class="navBarAng">
+										<div class="navelAng active" id="nEdit11">Infos</div>
+										<div class="navelAng" id="nEdit12">FAQs</div>
+										<div class="navelAng" id="nEdit13">Erfahrungsbericht</div>
+										<div class="navelAng" id="nEdit14">Bilder</div>
+									</div>
+									<div class="contentAng active" id="cEdit11" >
+										<div class="pull-left" style="width: 60%">
+											<textarea class="inBox" id="inEditAngebotInfo" placeholder="Geben sie hier nützliche Informationen zur Universität ein.*" cols="60" rows="6"></textarea>
+										</div>
+										<div class="pull-right">
+											<input type="text" class="inBox" id="inEditMaps1" placeholder="Kürzel der Uni, z.B. CSUSM, Abertay*" /><br>
+											<input type="text" class="inBox" id="inEditMaps2" placeholder="Stadt der Universität*" /><br>
+											<input type="text" class="inBox" id="inEditMaps3" placeholder="Land der Universität*" /><br>
+										</div>
+									</div>
+									<div class="contentAng" id="cEdit12">
+										<input type="text" class="inBox inline longBox" id="inEditFaqFr1" placeholder="Frage 1" />
+										<input type="text" class="inBox inline longBox" id="inEditFaqAn1" placeholder="Antwort 1" /><br>
+										<input type="text" class="inBox inline longBox" id="inEditFaqFr2" placeholder="Frage 2" />
+										<input type="text" class="inBox inline longBox" id="inEditFaqAn2" placeholder="Antwort 2" /><br>
+										<input type="text" class="inBox inline longBox" id="inEditFaqFr3" placeholder="Frage 3" />
+										<input type="text" class="inBox inline longBox" id="inEditFaqAn3" placeholder="Antwort 3" /><br>
+										<input type="text" class="inBox inline longBox" id="inEditFaqFr4" placeholder="Frage 4" />
+										<input type="text" class="inBox inline longBox" id="inEditFaqAn4" placeholder="Antwort 4" />
+									</div>
+									<div class="contentAng" id="cEdit13">
+										<textarea class="inBox" rows="4" cols="80" id="inEditAngebotErfahrungsbericht" placeholder="Tragen sie hier einen kurzen Erfahrungsbericht ein."></textarea>
+										<input type="text" class="inBox longBox" id="inEditAngebotErfAutor" placeholder="Autor, Kurs, Jahr des Auslandssemesters" style="float: right"/>
+									</div>
+									<div class="contentAng" id="cEdit14">
+										<b>Der Upload von Bildern funktioniert noch nicht!!!</b>
+										<input type="file" class="inBox" id="inEditAngebotBild1" style="color: white"/>
+										<input type="file" class="inBox" id="inEditAngebotBild2" style="color: white"/>
+										<input type="file" class="inBox" id="inEditAngebotBild3" style="color: white"/>
+										<input type="file" class="inBox" id="inEditAngebotBild4" style="color: white"/>
+									</div>
+								</div>
+								<p class="cmsAngebote cmsBtn btn" id="cmsBtnSave" style="clear: both; float: right">Änderungen speichern</p>
+							</div>
+	  					</div>
+	  					<div class="col-md-12 nonCms">
+	  						<p class="inline">Sortieren nach Studiengang</p>
+	  						<select class="inBox inline zweiD" id="selStudiengang"></select>
+	  					</div>
+	  					<a href="#" class="linkUp" id="angebotLinkUp">Zum Seitenanfang</a>
 	  					
-	  						<h3 class="studiengang row">Wirtschaftsinformatik <b class="caret"></b></h3>
-	  						<div class="uni" id="uni1">
-	  							<div class="pull-right maps"><iframe width="400" height="200" src="http://regiohelden.de/google-maps/map.php?width=600&amp;height=300&amp;hl=de&amp;q=Kydd%20Building%2C%20Bell%20Street%2C%20Dundee%20DD1%201HG%2C%20Vereinigtes%20K%C3%B6nigreich+(University%20of%20Abertay)&amp;ie=UTF8&amp;t=&amp;z=6&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
-	  							<div class="navBar">
-	  									<p class="navel current" id="11">Allgemeine Infos</p>
-	  									<p class="navel" id="12">FAQs</p>
-	  									<p class="navel" id="13">Erfahrungsbericht</p>
-	  									<p class="navel" id="14">Bilder</p>
-	  									<p class="navel weg" id="15">Bewerben</p>
-	  							</div>
-	  							<div class="angCont1 c11">
-		  							<h4>Abertay University of Dundee (Schottland)</h4>
-		 							<p>Die Hochschule Abertay Dundee ist mit ca. 5000 Studenten die kleinste UHochschulein
-									Dundee, Schottland. Die Universität besteht aus insgesamt fünf Fakultäten.
-									Sie ist im Zentrum der Hafenstadt Dundee gelegen und ihre Gebäude gehören zu den
-									modernsten Universitätsgebäuden im UK.
-									Bekannt ist Abertay vor allem für den Bereich Informatik. Sie war weltweit die erste
-									Universität die 1997 einen Studiengang in Computer Games angeboten hat.</p>
-									<p>Interesse? Schnell <b class="linkCont linkReg">registrieren</b> und bewerben!</p>
-								</div>
-								<div class="angCont1 c12">
-									<h4>FAQs</h4>
-								</div>
-								<div class="angCont1 c13">
-									<h4>Erfahrungsbericht</h4>
-								</div>
-								<div class="angCont1 c14">
-									<h4>Bilder</h4>
-								</div>
-								<div class="angCont1 c15">
-									<label class="btn">Jetzt bewerben<a href="bewerbungsportal.html" class="upload"></a></label>
-								</div>
-	  						</div>
-	  						<div  class="uni" id="uni2">
-	  							<div class="pull-right maps"><iframe width="400" height="200" src="http://regiohelden.de/google-maps/map.php?width=600&amp;height=300&amp;hl=de&amp;q=333%20S%20Twin%20Oaks%20Valley%20Rd%20San%20Marcos%2C%20CA%2092078%20Vereinigte%20Staaten+(California%20State%20University%20San%20Marcos)&amp;ie=UTF8&amp;t=&amp;z=6&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
-	  							<div class="navBar">
-	  									<p class="navel current" id="21">Allgemeine Infos</p>
-	  									<p class="navel" id="22">FAQs</p>
-	  									<p class="navel" id="23">Erfahrungsbericht</p>
-	  									<p class="navel" id="24">Bilder</p>
-	  									<p class="navel weg" id="25">Bewerben</p>
-	  							</div>
-	  							<div class="angCont2 c21">
-		  							<h4>University of California San Marcos (USA)</h4>
-		  							<p>Die California State University ist das größte staatliche Hochschulnetzwerk des Bundesstaats
-									Kalifornien mit insgesamt 400.000 Studierenden an 23 Standorten. Einer
-									davon ist der 1989 gegründete Campus in San Marcos mit insgesamt ca. 9000 Studierenden
-									in drei Fakultäten. Die Stadt San Marcos liegt im San Diego County und
-									hat ca. 80.000 Einwohner.
-									Der Standort Karlsruhe koordiniert den Austausch für alle DHBW-Standorte.</p>
-									<p>Interesse? Schnell <b class="linkCont linkReg">registrieren</b> und bewerben!</p>
-								</div>
-								<div class="angCont2 c22">
-									<h4>FAQs</h4>
-								</div>
-								<div class="angCont2 c23">
-									<h4>Erfahrungsbericht</h4>
-								</div>
-								<div class="angCont2 c24">
-									<h4>Bilder</h4>
-								</div>
-								<div class="angCont2 c25">
-									<label class="btn">Jetzt bewerben<a href="bewerbungsportal.html" class="upload"></a></label>
-								</div>
-	  						</div>
-	  					</div>
-	  					<div class="col-md-12 angebot" id="ang2">
-	  						<h3 class="studiengang row">Wirtschaftsingenieurwesen <b class="caret"></b></h3>
-	  						
-	  					</div>
-	  					<a href="#" class="linkUp">Zum Seitenanfang</a>
 		  			</div>
 		  			<div class="erfahrungsBerichte inhaltBox row" id="erfahrungsBerichte">
 		  				<div class="col-md-12"><label class="btn cms cmsBtn">Bearbeiten</label></div>
@@ -249,19 +331,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-12">
-							<div class="col-md-6">
+						<div class="col-md-12" id="berichtPfeile">
 								<img src="images/Arrow Right 2.png" class="arrow nonCms" id="arrLeft"/>
-							</div>
-							<div class="col-md-6">
 								<img src="images/Arrow Left 2.png" class="arrow nonCms" id="arrRight"/>
-							</div>
 						</div>
 						<div class="col-md-12 cmsBerichte">
 							<label class="btn cmsBtn pull-right" id="cmsBtnBerichtNeu">Erfahrungsbericht hinzufügen</label>
-						</div>
-						<div class="col-md-12 cmsBerichte">
-							<label class="btn cmsBtn pull-right" id="btnBerichteSave">Änderungen speichern</label>
+							<p class="cmsBerichte cmsBtn btn" id="cmsBtnSave" style="clear: both; float: right">Änderungen speichern</p>
 						</div>
 		  				<a href="#" class="linkUp">Zum Seitenanfang</a>
 		  				
@@ -273,25 +349,21 @@
 		  					<label class="btn cmsBtn cmsInfo btnBild" style="float: right">Bild Ändern<input class="upload" type="file" /></label>
 		  				</div>
 		  				<div class="col-md-6">
-		  					<h3 class="titel nonCms">Informationsmaterial</h3>
+		  					<h3 class="titel nonCms" id="infoMaterialTitel">Informationsmaterial</h3>
 		  					<p class="cmsInfo"><b style="color: #D60000">Titel ändern</b></p>
 	  						<input class="inBox cmsInfo" id="inInfoTitel" value="" placeholder="" />
 		  					<ul class="informationen nonCms">
-		  						<li id="infoli1"><a href="https://www.dhbw-karlsruhe.de/fileadmin/user_upload/dokumente/Auslandsamt/Infobrochuere/InfobroschuereAusland2014_QuadratFinal_Druck_29.01.13.pdf">Unsere Infobrochüre 2014/15</a></li>
-		  						<li id="infoli2"><a href="https://www.dhbw-karlsruhe.de/allgemein/einrichtungen/international-office/">DHBW Karlsruhe Internationales</a></li>
-		  						<li id="infoli3"><a href="https://www.dhbw-karlsruhe.de/allgemein/einrichtungen/international-office/stipendien/">Stipendien</a></li>
-		  						<li id="infoli4"><a href="https://www.dhbw-karlsruhe.de/allgemein/einrichtungen/international-office/internationale-kontakte/">Kontakte zu ausländischen Hochschulen</a></li>
+		  						<li id="infoli1"><a href=""></a></li>
+		  						<li id="infoli2"><a href=""></a></li>
+		  						<li id="infoli3"><a href=""></a></li>
+		  						<li id="infoli4"><a href=""></a></li>
+		  						<li id="infoli5"><a href=""></a></li>
+		  						<li id="infoli6"><a href=""></a></li>
+		  						<li id="infoli7"><a href=""></a></li>
 		  					</ul>
 		  					<p class="cmsInfo"><b style="color: #D60000">Linkelemente bearbeiten</b></p>
 		  					<div class="inputsInfo cmsInfo">
-		  						<input class="inBox" id="inInfoLi1" value="" /><img class="small" id="delInLi1" src="images/Button Delete.png" /><br>
-		  						<b style="margin-right: 5px">Link</b><input class="inBox infoLink" id="inInfoLink1" value=""><img class="small" id="delLink1" src="images/Button Delete.png" />
-		  						<input class="inBox" id="inInfoLi2" value="" /><img class="small" id="delInLi2" src="images/Button Delete.png" /><br>
-		  						<b style="margin-right: 5px">Link</b><input class="inBox infoLink" id="inInfoLink2" value=""><img class="small" id="delLink2" src="images/Button Delete.png" />
-		  						<input class="inBox" id="inInfoLi3" value="" /><img class="small" id="delInLi3" src="images/Button Delete.png" /><br>
-		  		 				<b style="margin-right: 5px">Link</b><input class="inBox infoLink" id="inInfoLink3" value=""><img class="small" id="delLink3" src="images/Button Delete.png" />
-		  						<input class="inBox" id="inInfoLi4" value="" /><img class="small" id="delInLi4" src="images/Button Delete.png" /><br>
-		  						<b style="margin-right: 5px">Link</b><input class="inBox infoLink" id="inInfoLink4" value=""><img class="small" id="delLink4" src="images/Button Delete.png" />
+		  						
 		  					</div>
 		  					<p class="red nonCms">Jetzt einfach registrieren und Vorteile nutzen</p>
 	  						<label class="btn linkReg nonCms">Registrieren</label>
@@ -302,6 +374,23 @@
 		  			</div>
 		  		</div>
 	  		</div>
+  		</div>
+  		<div class="container" id="nutzerVerwaltung">
+  			<div class="row">
+  				<div class="col-md-12 inhaltBox">
+  					<p>Hier können sie sich alle registrierten Nutzer anzeigen lassen, diese bearbeiten oder neue Nutzer anlegen.</p>
+  					<div class="pull-left">
+  						<div class="btn btnUser" id="userStudShow">Registrierte Studenten</div>
+  						<div class="btn btnUser" id="userMaShow">Registrierte Auslandsamtmitarbeiter</div>
+  						<div class="btn btnUser" id="userNeu">Neuen AAA anlegen</div>
+  					</div>
+  					<div class="pull-right">
+  						<p class="backAdmin">Zurück zum Hauptmenü</p>
+  					</div><br>
+  					<div class="" id="userTabelle">
+  					</div>
+  				</div>
+  			</div>
   		</div>
 		<!-- FuÃŸzeile ------------------------------------------------------------------------------>
 		<div class="footer">

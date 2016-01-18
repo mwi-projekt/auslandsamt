@@ -2,10 +2,10 @@ var main = function() {
 	
 	
 
-	 $(".k1").hide();
-     $(".k2").hide();
-     $(".k3").hide();
-     $(".k4").hide();
+	 $(".k1").show();
+     $(".k2").show();
+     $(".k3").show();
+     $(".k4").show();
      $(".k5").hide();
      $(".k6").hide();
      
