@@ -33,6 +33,7 @@ public class DatenAusBewerbungsformular extends HttpServlet {
     java.sql.Connection conn;
     java.sql.Statement stmt;
     ResultSet rs;
+    String hallo = "nein";
     
 	
     /**
