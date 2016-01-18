@@ -25,7 +25,7 @@ public class prozess_db extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	// JDBC driver name and database URL
-    final String DB_URL="jdbc:mysql://85.214.40.15:3306/mwi";
+    final String DB_URL="jdbc:mysql://193.196.7.215:3306/mwi";
 	// Database account
     final String USER = "mwi";
     final String PASS = "mwi2014";
@@ -54,12 +54,17 @@ public class prozess_db extends HttpServlet {
 			sql = "SELECT id, name, comment FROM prozess_files";
 		}
 		if ( action.equals("get_prozesses") ){
-			sql = "SELECT * FROM prozess";
+			sql = "SELECT id, name FROM prozess";
 		}
 		if ( action.equals("get_srvStatus") ){
 			sql = "SELECT status FROM prozess_srv";
 		}
-
+		if ( action.equals("get_full_prozess") ){
+			sql = "SELECT prozess_terms.*, prozess_files.name FROM prozess_files, prozess_terms WHERE "+ 
+				  "prozess_terms.prozess = '"+ request.getParameter("id") +"' AND "+
+				  "prozess_terms.file = prozess_files.id "+
+				  "ORDER BY prozess_terms.sortno ASC";
+		}
 	    try{
 	    	// Register JDBC driver
 	          Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -125,8 +130,8 @@ public class prozess_db extends HttpServlet {
 
 		if (action.equals("del_prozess") ) {
 			sql = "DELETE prozess, prozess_terms FROM prozess, prozess_terms WHERE"+
-					"prozess.id = '" + request.getParameter("id") + "'" +
-					"AND prozess_terms.prozess = '" + request.getParameter("id") +"'";
+					" prozess.id = '" + request.getParameter("id") + "' AND"+
+					" prozess_terms.prozess = '" + request.getParameter("id") + "'";
 		}
 
 		if (action.equals("start_srv") ) {
@@ -145,15 +150,25 @@ public class prozess_db extends HttpServlet {
 			//array send_sort{docID_}
 			//
 			String proz_id = "";
-			sql = "INSERT INTO prozess (name) VALUES ('" + request.getParameter("send_data") + "')";
+			sql = "SELECT id FROM prozess WHERE prozess.name = '"+ 
+				  request.getParameter("send_data") +"'";
 			proz_id = dbupdate(sql);
+			if ( proz_id.isEmpty() ){
+				System.out.println("Kein Eintrag Gefunden für diese UNI");
+				sql = "INSERT INTO prozess ( name ) VALUES ('" + request.getParameter("send_data") + "')";
+				dbupdate(sql);
+				proz_id = dbupdate("SELECT id FROM prozess ORDER BY modified DESC LIMIT 1 ");
+				proz_id = proz_id.trim();
+			}
 			//
 			//
 			String send_terms = request.getParameter("send_terms");
 			String[] part = send_terms.split(";");
+			sql = "DELETE FROM prozess_terms WHERE prozess = '" + proz_id.trim()  + "'";
+			dbupdate(sql);
 			for (int i = 0; i < part.length; i = i+5 ){
 				sql = "INSERT INTO prozess_terms (file, prozess, DEnd, TEnd, onlineB, postB) VALUES ('" + 
-						part[i] +"','" + proz_id + "', " +
+						part[i] +"','" + proz_id.trim() + "', " +
 						" STR_TO_DATE('"+ part[i+1] +"','%Y-%m-%d')," +
 						"STR_TO_DATE('"+ part[i+2] +"','%H:%i:%s'),'" + part[i+3] +"','"+ 
 						part[i+4] +"')";
@@ -164,12 +179,13 @@ public class prozess_db extends HttpServlet {
 				for (int i = 0; i < part.length; i++ ){
 					String[] zw = part[i].split("docID_");
 					sql = "UPDATE prozess_terms SET sortno='" + i + "' WHERE prozess='" + 
-							proz_id + "' AND file='" + zw[1] + "'";
+							proz_id.trim() + "' AND file='" + zw[1] + "'";
 					dbupdate(sql);
-				}		
-			
+				}			
 		return;
 		}
+		
+		
 		//
 		System.out.println(sql);
 	    try{
@@ -223,13 +239,21 @@ public class prozess_db extends HttpServlet {
 	          conn = DriverManager.getConnection(DB_URL,USER,PASS);
 	          // Execute SQL query
 	          stmt = conn.createStatement();
-	          
-	          stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);      
-	          
+	          System.out.println(sql);
+	          boolean res = stmt.execute(sql, Statement.RETURN_GENERATED_KEYS);      
 	          ResultSet generatedKeys = stmt.getGeneratedKeys();
 	          if(generatedKeys.next()){
 	              System.out.println("ID_DB = " + generatedKeys.getInt(1));
 	              genID = "" + generatedKeys.getInt(1);
+	          }
+	          if  ( res ) {
+	        	 rs = stmt.getResultSet();
+	        	 int i = 1;
+	        	 while ( rs.next() ){
+	        		 System.out.println( rs.getString(i) );
+	        		 genID = rs.getString(i);
+	        		 i++;
+	        	 }
 	          }
 	     }
 	     catch(SQLException se){

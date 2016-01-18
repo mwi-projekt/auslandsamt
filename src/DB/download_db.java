@@ -26,7 +26,7 @@ public class download_db extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	// JDBC driver name and database URL
-    final String DB_URL="jdbc:mysql://85.214.40.15:3306/mwi";
+    final String DB_URL="jdbc:mysql://193.196.7.215:3306/mwi";
 	// Database account
     final String USER = "mwi";
     final String PASS = "mwi2014";
@@ -57,7 +57,7 @@ public class download_db extends HttpServlet {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
             
             //queries the database
-            String sql = "SELECT * FROM prozess_files WHERE id = ?";
+            String sql = "SELECT id, name, comment, type, file FROM prozess_files WHERE id = ?";
             java.sql.PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, id);
             
@@ -140,7 +140,7 @@ public class download_db extends HttpServlet {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
             
             //queries the database
-            String sql = "SELECT * FROM prozess_files WHERE id = ?";
+            String sql = "SELECT id, name, comment, type, file FROM prozess_files WHERE id = ?";
             java.sql.PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, id);
             

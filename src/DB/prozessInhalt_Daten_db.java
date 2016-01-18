@@ -1,4 +1,4 @@
-package src.DB;
+package DB;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,7 +24,7 @@ public class prozessInhalt_Daten_db extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	// JDBC driver name and database URL
-    final String DB_URL="jdbc:mysql://85.214.40.15:3306/mwi";
+    final String DB_URL="jdbc:mysql://193.196.7.215:3306/mwi";
 	// Database account
     final String USER = "mwi";
     final String PASS = "mwi2014";
